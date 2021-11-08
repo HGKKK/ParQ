@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity, Button } from 'react-native'
 import SafeViewAndroid from '../components/SafeViewAndroid';
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
@@ -21,10 +21,27 @@ const HomeScreen = () => {
       console.log(error);
     }
   }
-
+  // function HomeScreen({ navigation }) {
+  //   return (
+  //     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+  //       <Text>Home Screen</Text>
+  //       <Button
+  //         title="Go to Details"
+  //         onPress={() => navigation.navigate('SpotDetailsScreen')}
+  //       />
+  //     </View>
+  //   );
+  // }
   return (
     <SafeAreaView style={[SafeViewAndroid.AndroidSafeAreaTop, tw`bg-white h-full`]}>
-      <View style={tw`p-5`}>
+      {/* <View>
+      <Button 
+        title="Go to Spot Details"
+        onPress={
+          ()=> this.props.navigation.navigate('SpotDetailsScreen')
+        }/>
+      </View> */}      
+      <View style={tw`p-5`}>        
         <Image 
           style={{
             width: 100, height: 100, resizeMode: "contain"

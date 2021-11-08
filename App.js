@@ -9,6 +9,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MapScreen from './screens/MapScreen';
 import AuthNavigation from './AuthNavigation';
+import SpotDetailsScreen from './screens/SpotDetailsScreen';
+import { render } from 'react-dom';
+import { createStackNavigator } from '@react-navigation/stack';
 
 // // suppress warnings
 // LogBox.ignoreLogs(['Warning: Async Storage has been extracted from react-native core']);
@@ -18,7 +21,18 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <AuthNavigation />
+      <AuthNavigation />      
     </Provider>
   );
 }
+
+// const RootStack = createNativeStackNavigator({
+//   HomeScreen: HomeScreen,
+//   SpotDetailsScreen: SpotDetailsScreen,
+// })
+
+// export default class App React.Component{
+//   render(){
+//     return<RootStack/>;
+//   }
+// }

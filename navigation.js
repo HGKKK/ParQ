@@ -5,6 +5,8 @@ import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import MapScreen from './screens/MapScreen';
 import SignupScreen from "./screens/SignupScreen";
+import SpotDetailsScreen from "./screens/SpotDetailsScreen";
+
 
 const Stack = createStackNavigator();
 const screenOptions = {
@@ -34,3 +36,15 @@ export const SignedOutStack = () => (
     </Stack.Navigator>
   </NavigationContainer>
 )
+
+export const TestSpotDetailsStack = () => (
+  <NavigationContainer>
+    <Stack.Navigator
+      initialRouteName="SpotDetailsScreen"
+      screenOptions={screenOptions}
+    >
+      <Stack.Screen name="SpotDetailsScreen" component={SpotDetailsScreen} />
+      <Stack.Screen name="MapScreen" component={MapScreen} />
+    </Stack.Navigator>
+  </NavigationContainer>
+) 
