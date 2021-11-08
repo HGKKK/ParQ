@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity, Button } from 'react-native'
 import SafeViewAndroid from '../components/SafeViewAndroid';
@@ -9,17 +10,43 @@ import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice';
 import NavFavourites from '../components/NavFavourites';
 import { firebase } from '../firebase'
+=======
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import SafeViewAndroid from "../components/SafeViewAndroid";
+import tw from "tailwind-react-native-classnames";
+import NavOptions from "../components/NavOptions";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { GOOGLE_MAPS_APIKEY } from "@env";
+import { useDispatch } from "react-redux";
+import { setDestination, setOrigin } from "../slices/navSlice";
+import NavFavourites from "../components/NavFavourites";
+import { firebase } from "../firebase";
+// keyboard avoiding view
+import KeyboardAvoidingWrapper from "./../components/KeyboardAvoidingWrapper";
+>>>>>>> b751b7fa589062ec5f067e1ed1a14219b346e9de
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
 
   const handleSignout = async () => {
     try {
-      await firebase.auth().signOut().then(() => console.log("Signed Out"));
-      console.log("Signed out successfully!")
+      await firebase
+        .auth()
+        .signOut()
+        .then(() => console.log("Signed Out"));
+      console.log("Signed out successfully!");
     } catch (error) {
       console.log(error);
     }
+<<<<<<< HEAD
   }
   // function HomeScreen({ navigation }) {
   //   return (
@@ -57,8 +84,30 @@ const HomeScreen = () => {
           source={{ uri: "https://img.icons8.com/fluency-systems-regular/60/ffffff/sent.png" }}
         />
       </TouchableOpacity>
+=======
+  };
 
-        <GooglePlacesAutocomplete
+  return (
+    <SafeAreaView
+      style={[SafeViewAndroid.AndroidSafeAreaTop, tw`bg-white h-full`]}
+    >
+      <View style={tw`p-5`}>
+        <TouchableOpacity
+          onPress={handleSignout}
+          style={{ height: 150, width: 150, marginBottom: 20 }}
+        >
+          <Image
+            style={{
+              width: 150,
+              height: 150,
+              resizeMode: "contain",
+            }}
+            source={require("../assets/logo.png")}
+          />
+        </TouchableOpacity>
+>>>>>>> b751b7fa589062ec5f067e1ed1a14219b346e9de
+
+        {/* <GooglePlacesAutocomplete
           placeholder="Where from?"
           styles={{
             container: {
@@ -86,19 +135,19 @@ const HomeScreen = () => {
           }}
           nearbyPlacesAPI="GooglePlacesSearch"
           debounce={400}
-        />
+        /> */}
 
         <NavOptions />
         <NavFavourites />
       </View>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   text: {
-    color: "blue"
+    color: "blue",
   },
 });
